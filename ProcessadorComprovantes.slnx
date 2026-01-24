@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="FileProcessor.WindowsForms/ProcessadorComprovantes.WindowsForms.csproj" Id="83ec1495-8c95-48f4-a9f8-a800e32dc892" />
+  <Project Path="GerenciadorComprovante/ProcessadorComprovantes.GerenciadorComprovante.csproj" Id="0c9650d2-6284-4454-bcb6-86ba1195bd19" />
+  <Project Path="ScriptRunner/ProcessadorComprovantes.ScriptRunner.csproj" />
+</Solution>
