@@ -1,7 +1,4 @@
-﻿using FileProcessor;
-using System;
-
-
+﻿using ProcessadorComprovantes.Application.MoveFiles;
 
 class Program 
 {     
@@ -9,13 +6,12 @@ class Program
     {
         try
         {
-            // Only get files that begin with the letter "c".
-            string[] dirs = Directory.GetFiles(@"C:\Users\Daniel\OneDrive\Desktop", "*.pdf");
+            string[] dirs = Directory.GetFiles(@"C:\Users\Daniel\Desktop", "*.pdf");
             Console.WriteLine("The number of files starting with c is {0}.", dirs.Length);
             foreach (string dir in dirs)
             {
 
-                FileProcessor.GerenciadorDeArquivos.ConcatenarData(dir);
+                MoveFileUseCase.Renomear(dir);
             }
         }
         catch (Exception e)

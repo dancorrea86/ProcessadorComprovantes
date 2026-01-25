@@ -1,6 +1,6 @@
 ﻿namespace FileProcessor.WindowsForms
 {
-    partial class Form1
+    partial class FormGerenciador
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,18 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ofdArquivos = new OpenFileDialog();
+            btnArquivos = new Button();
             SuspendLayout();
             // 
-            // Form1
+            // ofdArquivos
+            // 
+            ofdArquivos.FileName = "Arquivos";
+            // 
+            // btnArquivos
+            // 
+            btnArquivos.Location = new Point(21, 147);
+            btnArquivos.Name = "btnArquivos";
+            btnArquivos.Size = new Size(104, 55);
+            btnArquivos.TabIndex = 0;
+            btnArquivos.Text = "Selecionar Arquivos";
+            btnArquivos.UseVisualStyleBackColor = true;
+            btnArquivos.Click += BtnArquivos_Click;
+            // 
+            // FormGerenciador
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(421, 450);
-            Name = "Form1";
-            Text = "Form1";
+            ClientSize = new Size(311, 450);
+            Controls.Add(btnArquivos);
+            Name = "FormGerenciador";
+            Text = "Gerenciador Comprovantes";
+            Load += FormGerenciador_Load;
             ResumeLayout(false);
         }
 
         #endregion
+
+        private OpenFileDialog ofdArquivos;
+        private Button btnArquivos;
     }
 }
