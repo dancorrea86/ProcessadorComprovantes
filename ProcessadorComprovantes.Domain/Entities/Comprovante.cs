@@ -20,7 +20,6 @@ namespace ProcessadorComprovantes.Domain.Entities
             NomeComData = $"{Data:yyyyMMdd}_{Path.GetFileName(caminhoArquivo)}";
             DiretorioOriginal = Path.GetDirectoryName(caminhoArquivo) ?? "";
             DiretorioDestino = "";
-
         }
     }
 }

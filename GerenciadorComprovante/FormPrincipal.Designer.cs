@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnAbrirArquivos = new Button();
+            btnRenomear = new Button();
             button1 = new Button();
             SuspendLayout();
             // 
-            // btnAbrirArquivos
+            // btnRenomear
             // 
-            btnAbrirArquivos.Location = new Point(239, 33);
-            btnAbrirArquivos.Name = "btnAbrirArquivos";
-            btnAbrirArquivos.Size = new Size(114, 39);
-            btnAbrirArquivos.TabIndex = 0;
-            btnAbrirArquivos.Text = "Abrir Arquivos";
-            btnAbrirArquivos.UseVisualStyleBackColor = true;
-            btnAbrirArquivos.Click += btnAbrirArquivos_Click;
+            btnRenomear.Location = new Point(75, 12);
+            btnRenomear.Name = "btnRenomear";
+            btnRenomear.Size = new Size(152, 39);
+            btnRenomear.TabIndex = 0;
+            btnRenomear.Text = "Renomear Arquivos";
+            btnRenomear.UseVisualStyleBackColor = true;
+            btnRenomear.Click += btnAbrirArquivos_Click;
             // 
             // button1
             // 
-            button1.Location = new Point(239, 94);
+            button1.Location = new Point(75, 66);
             button1.Name = "button1";
-            button1.Size = new Size(114, 39);
+            button1.Size = new Size(152, 39);
             button1.TabIndex = 1;
             button1.Text = "Mover Arquivos";
             button1.UseVisualStyleBackColor = true;
@@ -56,9 +56,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(317, 208);
             Controls.Add(button1);
-            Controls.Add(btnAbrirArquivos);
+            Controls.Add(btnRenomear);
             Name = "FormPrincipal";
             Text = "Gerenciador de Comprovantes";
             ResumeLayout(false);
@@ -66,7 +66,7 @@
 
         #endregion
 
-        private Button btnAbrirArquivos;
+        private Button btnRenomear;
         private Button button1;
     }
 }

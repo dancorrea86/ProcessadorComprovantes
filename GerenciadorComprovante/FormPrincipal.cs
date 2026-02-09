@@ -29,17 +29,17 @@ namespace GerenciadorComprovante
             if (seletor.ShowDialog() == DialogResult.OK)
             {
                 int contagemSucesso = 0;
-                string dataHoje = DateTime.Now.ToString("yyyy-MM-dd");
 
                 foreach (string caminhoCompleto in seletor.FileNames)
                 {
                     try
                     {
+                        DateTime dataCriacao = File.GetCreationTime(caminhoCompleto);
                         string diretorio = Path.GetDirectoryName(caminhoCompleto);
                         string nomeOriginal = Path.GetFileName(caminhoCompleto);
 
                         // Define o novo nome: yyyy-MM-dd - NomeOriginal.ext
-                        string novoNome = $"{dataHoje} - {nomeOriginal}";
+                        string novoNome = $"{dataCriacao.ToString("yyyyMMhh")} - {nomeOriginal}";
                         string novoCaminhoCompleto = Path.Combine(diretorio, novoNome);
 
                         // Verifica se o arquivo já não existe para evitar erros
