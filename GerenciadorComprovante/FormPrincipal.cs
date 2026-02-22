@@ -39,7 +39,7 @@ namespace GerenciadorComprovante
                         string nomeOriginal = Path.GetFileName(caminhoCompleto);
 
                         // Define o novo nome: yyyy-MM-dd - NomeOriginal.ext
-                        string novoNome = $"{dataCriacao.ToString("yyyyMMhh")} - {nomeOriginal}";
+                        string novoNome = $"{dataCriacao.ToString("yyyy-MM-hh")} - {nomeOriginal}";
                         string novoCaminhoCompleto = Path.Combine(diretorio, novoNome);
 
                         // Verifica se o arquivo já não existe para evitar erros
