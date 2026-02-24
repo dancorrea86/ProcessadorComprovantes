@@ -1,3 +1,4 @@
+using ProcessadorComprovantes.GerenciadorComprovante;
 using System.Reflection.Metadata;
 using static GerenciadorComprovante.GerenciadorComprovante;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -91,7 +92,7 @@ namespace GerenciadorComprovante
 
         public string ObterCaminhoGoogleDrive()
         {
-            
+
             DriveInfo[] drives = DriveInfo.GetDrives();
 
             foreach (DriveInfo drive in drives)
@@ -105,12 +106,18 @@ namespace GerenciadorComprovante
                 }
                 catch (IOException)
                 {
-                   
+
                     continue;
                 }
             }
 
             return null; // Caso não encontre
+        }
+
+        private void btnCriarUsuario_Click(object sender, EventArgs e)
+        {
+            var formCriarUsuario = new formCreateUser();
+            formCriarUsuario.ShowDialog();
         }
     }
 }
