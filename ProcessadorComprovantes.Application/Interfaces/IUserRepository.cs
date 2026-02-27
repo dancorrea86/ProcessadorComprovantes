@@ -4,6 +4,8 @@ namespace ProcessadorComprovantes.Application.Interfaces
 {
     public interface IUserRepository
     {
-            void SaveUser(Usuario usuario);
+        void SaveUser(Usuario usuario);
+
+        public List<Usuario> GetUsers();
     }
 }

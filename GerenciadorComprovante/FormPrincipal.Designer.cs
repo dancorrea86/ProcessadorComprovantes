@@ -31,11 +31,13 @@
             btnRenomear = new Button();
             button1 = new Button();
             btnCriarUsuario = new Button();
+            cmbCarregarUsuario = new ComboBox();
+            btnSelecionarFiles = new Button();
             SuspendLayout();
             // 
             // btnRenomear
             // 
-            btnRenomear.Location = new Point(166, 137);
+            btnRenomear.Location = new Point(166, 136);
             btnRenomear.Name = "btnRenomear";
             btnRenomear.Size = new Size(152, 39);
             btnRenomear.TabIndex = 0;
@@ -55,7 +57,7 @@
             // 
             // btnCriarUsuario
             // 
-            btnCriarUsuario.Location = new Point(12, 12);
+            btnCriarUsuario.Location = new Point(12, 22);
             btnCriarUsuario.Name = "btnCriarUsuario";
             btnCriarUsuario.Size = new Size(152, 39);
             btnCriarUsuario.TabIndex = 2;
@@ -63,16 +65,38 @@
             btnCriarUsuario.UseVisualStyleBackColor = true;
             btnCriarUsuario.Click += btnCriarUsuario_Click;
             // 
+            // cmbCarregarUsuario
+            // 
+            cmbCarregarUsuario.FormattingEnabled = true;
+            cmbCarregarUsuario.Location = new Point(298, 22);
+            cmbCarregarUsuario.Name = "cmbCarregarUsuario";
+            cmbCarregarUsuario.Size = new Size(121, 23);
+            cmbCarregarUsuario.TabIndex = 3;
+            cmbCarregarUsuario.SelectedIndexChanged += cmbCarregarUsuario_SelectedIndexChanged;
+            // 
+            // btnSelecionarFiles
+            // 
+            btnSelecionarFiles.Location = new Point(166, 80);
+            btnSelecionarFiles.Name = "btnSelecionarFiles";
+            btnSelecionarFiles.Size = new Size(152, 39);
+            btnSelecionarFiles.TabIndex = 4;
+            btnSelecionarFiles.Text = "Selecionar Arquivos";
+            btnSelecionarFiles.UseVisualStyleBackColor = true;
+            btnSelecionarFiles.Click += btnAbrirArquivos_Click;
+            // 
             // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(503, 319);
+            Controls.Add(btnSelecionarFiles);
+            Controls.Add(cmbCarregarUsuario);
             Controls.Add(btnCriarUsuario);
             Controls.Add(button1);
             Controls.Add(btnRenomear);
             Name = "FormPrincipal";
             Text = "Gerenciador de Comprovantes";
+            Load += FormPrincipal_Load;
             ResumeLayout(false);
         }
 
@@ -81,5 +105,7 @@
         private Button btnRenomear;
         private Button button1;
         private Button btnCriarUsuario;
+        private ComboBox cmbCarregarUsuario;
+        private Button btnSelecionarFiles;
     }
 }

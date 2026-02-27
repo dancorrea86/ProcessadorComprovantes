@@ -13,6 +13,12 @@ namespace ProcessadorComprovantes.Application.Usuarios
             _repositorio = repositorio;
         }
 
+        public List<Usuario> GetUsers()
+        {
+            List<Usuario> users = _repositorio.GetUsers();
+            return users;
+        }
+
         public void Executar(string nome, string pasta)
         {
             if (string.IsNullOrWhiteSpace(nome) || string.IsNullOrWhiteSpace(pasta))
