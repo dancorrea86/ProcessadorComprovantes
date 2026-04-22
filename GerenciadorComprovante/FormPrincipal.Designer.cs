@@ -43,7 +43,7 @@
             btnRenomear.TabIndex = 0;
             btnRenomear.Text = "Renomear Arquivos";
             btnRenomear.UseVisualStyleBackColor = true;
-            btnRenomear.Click += btnAbrirArquivos_Click;
+            btnRenomear.Click += btnRenomear_Click;
             // 
             // button1
             // 

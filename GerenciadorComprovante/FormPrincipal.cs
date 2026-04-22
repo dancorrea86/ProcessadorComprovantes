@@ -80,13 +80,13 @@ namespace GerenciadorComprovante
             }
 
             MessageBox.Show($"{contagemSucesso} arquivo(s) renomeados com sucesso!", "Concluído");
-            
+
         }
 
         private void btnProcessar_Click(object sender, EventArgs e)
         {
             string unidadeGoogleDrive = ObterCaminhoGoogleDrive();
-            
+
             string pastaDestino = @$"{_user.DiretorioRaiz}";
 
 
@@ -142,6 +142,11 @@ namespace GerenciadorComprovante
         private void cmbCarregarUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
             _user = _usuarios.FirstOrDefault(u => u.Nome == cmbCarregarUsuario.SelectedItem.ToString());
+        }
+
+        private void btnRenomear_Click(object sender, EventArgs e)
+        {
+            RenomearArquivosSelecionados();
         }
     }
 }
