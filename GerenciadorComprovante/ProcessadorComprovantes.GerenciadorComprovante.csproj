@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ProcessadorComprovantes.Application\ProcessadorComprovantes.Application.csproj" />
+    <ProjectReference Include="..\ProcessadorComprovantes.Infrastructure\ProcessadorComprovantes.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
