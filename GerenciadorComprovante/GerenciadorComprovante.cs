@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GerenciadorComprovante
+﻿namespace GerenciadorComprovante
 {
     public class GerenciadorComprovante
     {
@@ -33,7 +29,7 @@ namespace GerenciadorComprovante
                 // Se destino for nulo, usa o diretório atual (como os.getcwd)
                 _pastaDestino = pastaDestino ?? Directory.GetCurrentDirectory();
 
-                if (Directory.Exists(_pastaOrigem))
+                if (Directory.Exists(pastaDestino))
                     _listaArquivos = Directory.GetFiles(_pastaOrigem);
                 else
                     _listaArquivos = new string[0];
@@ -50,7 +46,6 @@ namespace GerenciadorComprovante
 
                 MoverArquivosFisicos(listaArquivosParaMover);
             }
-
 
             private void MoverArquivosFisicos(List<string> listaArquivosParaMover)
             {

@@ -1,5 +1,3 @@
-using System;
-
 namespace ProcessadorComprovantes.Domain.Entities
 {
     public class Comprovante

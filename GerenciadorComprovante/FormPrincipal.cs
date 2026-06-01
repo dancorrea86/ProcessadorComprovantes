@@ -1,3 +1,4 @@
+using ProcessadorComprovantes.Application.Interfaces;
 using ProcessadorComprovantes.Application.Usuarios;
 using ProcessadorComprovantes.Domain.Entities;
 using ProcessadorComprovantes.GerenciadorComprovante;
@@ -10,18 +11,21 @@ namespace GerenciadorComprovante
 {
     public partial class FormPrincipal : Form
     {
+        private readonly IFileService _fileService;
+
         List<string> _arquivosSelecionados = new List<string>();
         Usuario _user;
         List<Usuario> _usuarios;
 
-        public FormPrincipal()
+        public FormPrincipal(IFileService fileService)
         {
+            _fileService = fileService;
             InitializeComponent();
         }
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            var service = new CreateUserUseCase(new JsonUsuarioRepository());
+            //var service = new CreateUserUseCase(new JsonUsuarioRepository());
             _usuarios = service.GetUsers();
             cmbCarregarUsuario.Items.Clear();
             cmbCarregarUsuario.Items.AddRange(_usuarios.Select(u => u.Nome).ToArray());
@@ -87,17 +91,21 @@ namespace GerenciadorComprovante
         {
             string unidadeGoogleDrive = ObterCaminhoGoogleDrive();
 
+            if (_user == null)
+            {
+                MessageBox.Show("Por favor, selecione um usuário para processar os arquivos.", "Usuário Não Selecionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             string pastaDestino = @$"{_user.DiretorioRaiz}";
 
-
-
-            foreach (var item in _arquivosSelecionados)
+            foreach (string file in _arquivosSelecionados)
             {
                 try
                 {
-                    MoveArquivos gerenciador = new MoveArquivos(item, pastaDestino);
-
-                    gerenciador.Main();
+                    string? result = Path.GetFileName(file);
+                    string destinationFile = Path.Combine(pastaDestino, result);
+                    _fileService.MoveFile(file, destinationFile);
 
                     MessageBox.Show("Processamento concluído com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -111,7 +119,6 @@ namespace GerenciadorComprovante
 
         public string ObterCaminhoGoogleDrive()
         {
-
             DriveInfo[] drives = DriveInfo.GetDrives();
 
             foreach (DriveInfo drive in drives)
