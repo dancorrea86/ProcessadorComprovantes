@@ -2,6 +2,7 @@
   <Project Path="GerenciadorComprovante/ProcessadorComprovantes.GerenciadorComprovante.csproj" Id="0c9650d2-6284-4454-bcb6-86ba1195bd19" />
   <Project Path="ProcessadorComprovantes.Application/ProcessadorComprovantes.Application.csproj" />
   <Project Path="ProcessadorComprovantes.Domain/ProcessadorComprovantes.Domain.csproj" />
+  <Project Path="ProcessadorComprovantes.Infra.Ioc/ProcessadorComprovantes.Infra.Ioc.csproj" Id="ea4695ea-d2a8-4f46-9d89-db331722ee51" />
   <Project Path="ProcessadorComprovantes.Infrastructure/ProcessadorComprovantes.Infrastructure.csproj" />
   <Project Path="ScriptRunner/ProcessadorComprovantes.ScriptRunner.csproj" />
 </Solution>

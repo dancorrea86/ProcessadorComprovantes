@@ -25,8 +25,7 @@ namespace GerenciadorComprovante
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            //var service = new CreateUserUseCase(new JsonUsuarioRepository());
-            _usuarios = service.GetUsers();
+
             cmbCarregarUsuario.Items.Clear();
             cmbCarregarUsuario.Items.AddRange(_usuarios.Select(u => u.Nome).ToArray());
         }

@@ -1,7 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ProcessadorComprovantes.Application.Interfaces;
-using ProcessadorComprovantes.Infrastructure;
+using ProcessadorComprovantes.Infra.Ioc;
 
 namespace GerenciadorComprovante
 {
@@ -14,16 +14,24 @@ namespace GerenciadorComprovante
 
             HostApplicationBuilder builder = Host.CreateApplicationBuilder();
 
-            
-            
-            builder.Services.AddSingleton<IFileService, FileService>();
+            RegisterServices(builder.Services);
 
+            builder.Services.AddTransient<FormPrincipal>();
             IHost host = builder.Build();
 
             host.Start();
 
-            ApplicationConfiguration.Initialize();
-            Application.Run(new FormPrincipal(host.Services.GetRequiredService<IFileService>()));
+            // 2. CORREÇÃO: Deixe o host criar o formulário para você.
+            // O .NET vai olhar o construtor do FormPrincipal, ver que ele precisa de um IFileService,
+            // vai buscar o FileService no container e injetar tudo automaticamente.
+            var form = host.Services.GetRequiredService<FormPrincipal>();
+
+            Application.Run(form);
+        }
+
+        public static void RegisterServices(IServiceCollection services)
+        {
+            DependencyContainer.RegisterServices(services);
         }
     }
 }
