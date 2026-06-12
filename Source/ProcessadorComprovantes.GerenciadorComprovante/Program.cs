@@ -1,6 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using ProcessadorComprovantes.Application.Interfaces;
 using ProcessadorComprovantes.Infra.Ioc;
 
 namespace GerenciadorComprovante
@@ -17,6 +16,7 @@ namespace GerenciadorComprovante
             RegisterServices(builder.Services);
 
             builder.Services.AddTransient<FormPrincipal>();
+      
             IHost host = builder.Build();
 
             host.Start();

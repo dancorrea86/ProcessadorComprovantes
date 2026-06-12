@@ -9,8 +9,6 @@ namespace ProcessadorComprovantes.Infra.Ioc
         public static void RegisterServices(IServiceCollection services)
         {
             services.AddScoped<IFileService, FileService>();
-
-           
         }
     }
 }

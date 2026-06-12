@@ -19,14 +19,21 @@ namespace GerenciadorComprovante
 
         public FormPrincipal(IFileService fileService)
         {
-            _fileService = fileService;
             InitializeComponent();
+            _fileService = fileService;
+           
         }
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-
             cmbCarregarUsuario.Items.Clear();
+
+            // Se _usuarios for nulo, cria uma lista vazia para evitar o crash
+            if (_usuarios == null)
+            {
+                _usuarios = new List<Usuario>();
+            }
+
             cmbCarregarUsuario.Items.AddRange(_usuarios.Select(u => u.Nome).ToArray());
         }
 
